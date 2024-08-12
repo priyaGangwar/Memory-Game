@@ -3,8 +3,13 @@ let gameCards = [];
 let firstSelection, secondSelection;
 let isBoardLocked = false;
 let currentScore = 0;
+let positiveScore = 0;
+let negativeScore = 0;
+let matchedPairs = 0;
 
 document.querySelector(".score").textContent = currentScore;
+document.querySelector(".positive-score").textContent = positiveScore;
+document.querySelector(".negative-score").textContent = negativeScore;
 
 fetch("./data/cards.json")
   .then((response) => response.json())
@@ -57,17 +62,24 @@ function handleCardClick() {
   }
 
   secondSelection = this;
-  currentScore++;
-  document.querySelector(".score").textContent = currentScore;
   isBoardLocked = true;
 
   checkForCardMatch();
 }
 
 function checkForCardMatch() {
-  const isMatchingPair = firstSelection.dataset.card === secondSelection.dataset.card;
+  if (firstSelection.dataset.card === secondSelection.dataset.card) {
+    positiveScore += 10;
+    matchedPairs++;
+    disableSelectedCards();
+    checkForGameEnd();
+  } else {
+    negativeScore -= 2;
+    resetFlippedCards();
+  }
 
-  isMatchingPair ? disableSelectedCards() : resetFlippedCards();
+  currentScore = positiveScore + negativeScore;
+  updateScores();
 }
 
 function disableSelectedCards() {
@@ -89,11 +101,26 @@ function resetGameBoard() {
   [firstSelection, secondSelection, isBoardLocked] = [null, null, false];
 }
 
+function checkForGameEnd() {
+  if (matchedPairs === gameCards.length / 2) {
+    setTimeout(() => alert("Congratulations! You've matched all the cards!"), 500);
+  }
+}
+
 function restartGame() {
   resetGameBoard();
-  randomizeCards();
+  matchedPairs = 0;
+  positiveScore = 0;
+  negativeScore = 0;
   currentScore = 0;
-  document.querySelector(".score").textContent = currentScore;
+  updateScores();
+  randomizeCards();
   container.innerHTML = "";
   createCards();
+}
+
+function updateScores() {
+  document.querySelector(".score").textContent = currentScore;
+  document.querySelector(".positive-score").textContent = positiveScore;
+  document.querySelector(".negative-score").textContent = negativeScore;
 }
