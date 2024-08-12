@@ -1,4 +1,4 @@
-<img width="1440" alt="Screenshot 2024-08-12 at 9 12 09 PM" src="https://github.com/user-attachments/assets/9c14e99a-051e-4591-b524-25a2201fa0a7">
+
 Memory Card Game
 
 Overview:
@@ -18,3 +18,5 @@ Game Rules:
 4. If the cards do not match, they are flipped back over.
 5. The game continues until all pairs are matched.
 6. The player's score increases with each card flipped and when a match is found and decreases otherwise.
+
+<img width="1440" alt="Screenshot 2024-08-12 at 9 12 09 PM" src="https://github.com/user-attachments/assets/9c14e99a-051e-4591-b524-25a2201fa0a7">
