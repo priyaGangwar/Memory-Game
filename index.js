@@ -110,7 +110,7 @@ function checkForGameEnd() {
   }
 }
 
-function restartGame() {
+function restart() {
   resetGameBoard();
   matchedPairs = 0;
   positiveScore = 0;
