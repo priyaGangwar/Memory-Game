@@ -114,6 +114,8 @@ function restartGame() {
   negativeScore = 0;
   currentScore = 0;
   updateScores();
+  const cards = document.querySelectorAll(".card");
+  cards.forEach(card => card.remove());
   randomizeCards();
   container.innerHTML = "";
   createCards();
