@@ -11,7 +11,7 @@ document.querySelector(".score").textContent = currentScore;
 document.querySelector(".positive-score").textContent = positiveScore;
 document.querySelector(".negative-score").textContent = negativeScore;
 
-fetch("./data/cards.json")
+fetch("./cards.json")
   .then((response) => response.json())
   .then((cardData) => {
     gameCards = [...cardData, ...cardData];
