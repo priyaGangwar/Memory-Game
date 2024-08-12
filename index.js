@@ -103,7 +103,10 @@ function resetGameBoard() {
 
 function checkForGameEnd() {
   if (matchedPairs === gameCards.length / 2) {
-    setTimeout(() => alert("Congratulations! You've matched all the cards!"), 500);
+    setTimeout(() => {
+      alert("Congratulations! You've matched all the cards!");
+      restartGame();
+    }, 500);
   }
 }
 
