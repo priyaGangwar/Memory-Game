@@ -29,3 +29,31 @@ jobs:
 
       - name: Build the application
         run: npm run build  # Replace with your build command
+
+
+  # Job for deploying the application to GitHub Pages
+  deploy:
+    needs: build-and-test  # Run this job only after the build-and-test job is successful
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the application
+        run: npm run build  # Replace with your build command
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build  # Replace with your build output directory
+          
