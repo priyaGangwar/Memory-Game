@@ -7,3 +7,25 @@ on:
   pull_request:
     branches:
       - main
+jobs:
+  # Job for building and testing the application
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run unit tests
+        run: npm test  # Replace with your test command
+
+      - name: Build the application
+        run: npm run build  # Replace with your build command
