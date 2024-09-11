@@ -5,17 +5,29 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '16'
 
       - name: Install dependencies
-        run: npm install eslint
+        run: |
+          npm install jasmine --save-dev
+          npm install nyc --save-dev
 
-      - name: Run ESLint
-        run: npx eslint . --ext .js,.jsx
+      - name: Configure Jasmine
+        run: npx jasmine init
+
+      - name: Run Jasmine Tests with Coverage
+        run: npx nyc jasmine
+
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage/
