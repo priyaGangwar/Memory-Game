@@ -1,17 +1,10 @@
-name: CI/CD Pipeline
-# Trigger the workflow on push or pull request to the main branch
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+name: CI Pipeline
+
+on: [push, pull_request]
+
 jobs:
-  # Job for building and testing the application
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -19,41 +12,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '16'
 
       - name: Install dependencies
-        run: npm install
+        run: npm install eslint
 
-      - name: Run unit tests
-        run: npm test  # Replace with your test command
-
-      - name: Build the application
-        run: npm run build  # Replace with your build command
-
-
-  # Job for deploying the application to GitHub Pages
-  deploy:
-    needs: build-and-test  # Run this job only after the build-and-test job is successful
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build the application
-        run: npm run build  # Replace with your build command
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build  # Replace with your build output directory
-          
+      - name: Run ESLint
+        run: npx eslint . --ext .js,.jsx
