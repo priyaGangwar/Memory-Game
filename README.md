@@ -19,5 +19,5 @@ Game Rules:
 5. The game continues until all pairs are matched.
 6. The player's score increases with each card flipped and when a match is found and decreases otherwise.
 
-<img width="1416" alt="Screenshot 2024-08-12 at 9 14 35 PM" src="https://github.com/user-attachments/assets/5709abe3-8cdd-4612-a17e-7940a8a09587">
+
 
