@@ -1,10 +1,8 @@
-import { randomizeCards, checkForCardMatch } from './index.js';
+const { randomizeCards, checkForCardMatch } = require('./index.js');
 
 describe("Utility tests", () => {
-    test("Reloads only when needed", function () {
-        return __awaiter(this, void 0, void 0, function* () {
-            //  let cm = new cmake.CMakeHelpers();
-        });
+    test("Reloads only when needed", async () => {
+        //  let cm = new cmake.CMakeHelpers();
     });
 
     test('randomizeCards should shuffle the cards', () => {
