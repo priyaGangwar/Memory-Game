@@ -1,4 +1,4 @@
-import { randomizeCards, createCards, checkForCardMatch } from 'index.js';
+import { randomizeCards, checkForCardMatch } from './index.js';
 
 test('randomizeCards should shuffle the cards', () => {
   const cards = [{ name: 'A' }, { name: 'B' }];
