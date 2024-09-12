@@ -19,7 +19,7 @@ fetch("./cards.json")
     createCards();
   });
 
-function randomizeCards() {
+export function randomizeCards() {
   let remainingCards = gameCards.length,
       randomIndex,
       tempValue;
@@ -34,7 +34,7 @@ function randomizeCards() {
   }
 }
 
-function createCards() {
+export function createCards() {
   gameCards.forEach((card) => {
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("card");
@@ -67,7 +67,7 @@ function handleCardClick() {
   checkForCardMatch();
 }
 
-function checkForCardMatch() {
+export function checkForCardMatch() {
   if (firstSelection.dataset.card === secondSelection.dataset.card) {
     positiveScore += 10;
     matchedPairs++;
@@ -89,7 +89,7 @@ function disableSelectedCards() {
   resetGameBoard();
 }
 
-function resetFlippedCards() {
+export function resetFlippedCards() {
   setTimeout(() => {
     firstSelection.classList.remove("flipped");
     secondSelection.classList.remove("flipped");
@@ -101,16 +101,26 @@ function resetGameBoard() {
   [firstSelection, secondSelection, isBoardLocked] = [null, null, false];
 }
 
-function checkForGameEnd() {
-  if (matchedPairs === gameCards.length / 2) {
-    setTimeout(() => {
-      alert("Congratulations! You've matched all the cards!");
-      restartGame();
-    }, 500);
-  }
+function checkForCardMatch() {
+  const isMatch = firstSelection.dataset.card === secondSelection.dataset.card;
+  isMatch ? handleMatch() : handleNoMatch();
+  updateScores();
 }
 
-function restart() {
+function handleMatch() {
+  positiveScore += 10;
+  matchedPairs++;
+  disableSelectedCards();
+  checkForGameEnd();
+}
+
+function handleNoMatch() {
+  negativeScore -= 2;
+  resetFlippedCards();
+}
+
+
+export function restart() {
   resetGameBoard();
   matchedPairs = 0;
   positiveScore = 0;
