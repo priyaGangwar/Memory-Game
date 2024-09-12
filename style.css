@@ -1,43 +1,42 @@
 body {
   min-height: 100vh;
   min-width: 100vh;
-  background: linear-gradient(135deg, #959591, #3a3a2e, #0e0d02);
-  color: rgb(237, 218, 15);
+  background: #950146b8;
+  color: rgb(237 218 15);
 }
 
 h1 {
   text-align: center;
   font-weight: 700;
   font-size: 50px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: Montserrat, sans-serif;
   color: #e6e6e6;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  text-shadow: 2px 2px 4px rgb(0 0 0 / 60%);
 }
 
-
 p {
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .actions {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .actions button {
-    padding: 8px 16px;
-    font-size: 30px;
-    border-radius: 10px;
-    background-color: #27ae60;
-    color: white;
+  padding: 10px 20px;
+  font-size: 30px;
+  border-radius: 20px;
+  background-color: #27ae60;
+  color: #fffafa;
 }
 
 .grid-container {
   display: grid;
   justify-content: center;
-  grid-gap: 16px;
+  grid-gap: 30px;
   grid-template-columns: repeat(4, 140px);
   grid-template-rows: repeat(4, calc(140px / 2 * 3));
 }
@@ -46,15 +45,14 @@ p {
   height: calc(140px / 2 * 3);
   width: 140px;
   border-radius: 10px;
-  background: linear-gradient(135deg, rgba(23, 217, 239, 1), rgba(0, 122, 204, 1));
+  background:  #f4dfed;
   position: relative;
   transform-style: preserve-3d;
   transition: all 0.5s ease-in-out;
 }
 
-
 .front-image {
-  width: 140px;
+  width: 190px;
   height: 150px;
 }
 
@@ -62,20 +60,22 @@ p {
   transform: rotateY(180deg);
 }
 
-.front, .back {
-    backface-visibility: hidden;
-    position: absolute;
-    border-radius: 10px;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  border-radius: 10px;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .card .front {
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: rotateY(180deg);
 }
 
 .card .back {
@@ -83,8 +83,4 @@ p {
   background-position: center center;
   background-size: cover;
   backface-visibility: hidden;
-}
-
-.card .front {
-  transform: rotateY(180deg);
 }
