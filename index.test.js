@@ -1,4 +1,4 @@
-const { randomizeCards, createCards, checkForCardMatch } = require('../index.js');
+import { randomizeCards, createCards, checkForCardMatch } from 'index.js';
 
 test('randomizeCards should shuffle the cards', () => {
   const cards = [{ name: 'A' }, { name: 'B' }];
