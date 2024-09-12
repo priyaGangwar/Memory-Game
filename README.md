@@ -2,7 +2,8 @@
 Memory Card Game
 
 Overview:
-The Memory Card Game is a simple web-based game where players flip over cards to find matching pairs. The game is built using HTML, CSS, and JavaScript, with the card data sourced from a JSON file. The objective of the game is to match all pairs of cards with the highest score.
+The Memory Card Game is a simple web-based game where players flip over cards to find matching pairs. The game is built using HTML, CSS, and JavaScript, 
+with the card data sourced from a JSON file. The objective of the game is to match all pairs of cards with the highest score.
 
 Features:
   Responsive Design: The game grid adapts to desktop and laptop screen sizes, making it playable on desktop.
@@ -19,5 +20,48 @@ Game Rules:
 5. The game continues until all pairs are matched.
 6. The player's score increases with each card flipped and when a match is found and decreases otherwise.
 
+<img width="1277" alt="Screenshot 2024-09-12 at 10 32 55 PM" src="https://github.com/user-attachments/assets/66a70e46-00f3-49c3-9c98-a1367e0fc7fb">
 
+ESLint is a static code analysis tool for identifying and fixing problems in JavaScript code. 
+It helps developers follow consistent coding styles, catch errors early, and improve code quality.
 
+To use ESLint in your project, follow these steps:
+
+Open your terminal and navigate to your project folder.
+Run the following command to install ESLint:
+npm init -y  
+npm install eslint --save-dev
+npx eslint --init
+npx eslint <filename.js>
+To lint an entire project:
+npx eslint .
+npx eslint . --fix
+
+To run Stylelint, you need to install it and configure it first. Here's how you can get started:
+
+npm install --save-dev stylelint stylelint-config-standard
+2. Configure Stylelint
+Create a .stylelintrc.json file in the root of your project with a configuration like this:
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "indentation": 2,
+    "string-quotes": "single"
+  }
+}
+npx stylelint "**/*.css"
+npx stylelint "**/*.css" --fix
+
+To run Jest, you'll first need to set it up in your project. Here’s a step-by-step guide:
+npm install --save-dev jest
+Add a Test Script: In your package.json file, add a test script that uses Jest:
+"scripts": {
+  "test": "jest"
+}
+
+Refactoring code:
+Changed various things like code duplication, dead codes, formatting, indentation errors etc.
+Changed few code snippets so that it is easy to understand the game logic and read code.
+<img width="1440" alt="Screenshot 2024-09-12 at 4 28 48 PM" src="https://github.com/user-attachments/assets/b068ff75-69b6-4f24-b814-70270243c252">
+<img width="1440" alt="Screenshot 2024-09-12 at 8 45 14 AM" src="https://github.com/user-attachments/assets/466aa158-deab-405e-8aca-d6590e3b87a9">
+<img width="773" alt="Screenshot 2024-09-12 at 8 38 31 AM" src="https://github.com/user-attachments/assets/3d33856f-4e96-41eb-9087-1f5739dc8d52">
