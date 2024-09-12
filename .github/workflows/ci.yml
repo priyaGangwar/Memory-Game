@@ -9,3 +9,4 @@ jobs:
           node-version: '14'
       - run: npm install
       - run: npx eslint .
+      - run: npm test
