@@ -3,8 +3,6 @@ module.exports = {
     collectCoverage: true,
     coverageDirectory: 'coverage',
     coverageReporters: ['text', 'lcov'],
-  };
-  module.exports = {
     transform: {
       '^.+\\.js$': 'babel-jest',
     },
