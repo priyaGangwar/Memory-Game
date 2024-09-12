@@ -14,11 +14,9 @@
     "quotes": ["error", "single"],
     "semi": ["error", "always"]
   }
-}
-{
   "plugins": ["complexity", "no-duplicate-imports"],
   "rules": {
     "complexity": ["error", { "max": 10 }],
     "no-duplicate-imports": "error"
-  }
+  } 
 }
