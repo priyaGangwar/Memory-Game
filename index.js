@@ -41,7 +41,7 @@ export function createCards() {
     cardDiv.setAttribute("data-card", card.name);
     cardDiv.innerHTML = `
       <div class="front">
-        <img class="front-image" src=${card.image} />
+        <img class="front-image" src="${card.image}" />
       </div>
       <div class="back"></div>
     `;
@@ -68,18 +68,21 @@ function handleCardClick() {
 }
 
 export function checkForCardMatch() {
-  if (firstSelection.dataset.card === secondSelection.dataset.card) {
-    positiveScore += 10;
-    matchedPairs++;
-    disableSelectedCards();
-    checkForGameEnd();
-  } else {
-    negativeScore -= 2;
-    resetFlippedCards();
-  }
-
-  currentScore = positiveScore + negativeScore;
+  const isMatch = firstSelection.dataset.card === secondSelection.dataset.card;
+  isMatch ? handleMatch() : handleNoMatch();
   updateScores();
+}
+
+function handleMatch() {
+  positiveScore += 10;
+  matchedPairs++;
+  disableSelectedCards();
+  checkForGameEnd();
+}
+
+function handleNoMatch() {
+  negativeScore -= 2;
+  resetFlippedCards();
 }
 
 function disableSelectedCards() {
@@ -101,25 +104,6 @@ function resetGameBoard() {
   [firstSelection, secondSelection, isBoardLocked] = [null, null, false];
 }
 
-function checkForCardMatch() {
-  const isMatch = firstSelection.dataset.card === secondSelection.dataset.card;
-  isMatch ? handleMatch() : handleNoMatch();
-  updateScores();
-}
-
-function handleMatch() {
-  positiveScore += 10;
-  matchedPairs++;
-  disableSelectedCards();
-  checkForGameEnd();
-}
-
-function handleNoMatch() {
-  negativeScore -= 2;
-  resetFlippedCards();
-}
-
-
 export function restart() {
   resetGameBoard();
   matchedPairs = 0;
@@ -138,3 +122,6 @@ function updateScores() {
   document.querySelector(".positive-score").textContent = positiveScore;
   document.querySelector(".negative-score").textContent = negativeScore;
 }
+
+// Make restart function accessible globally
+window.restart = restart;
