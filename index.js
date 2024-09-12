@@ -7,41 +7,33 @@ let positiveScore = 0;
 let negativeScore = 0;
 let matchedPairs = 0;
 
-document.querySelector(".score").textContent = currentScore;
-document.querySelector(".positive-score").textContent = positiveScore;
-document.querySelector(".negative-score").textContent = negativeScore;
-
 fetch("./cards.json")
   .then((response) => response.json())
   .then((cardData) => {
     gameCards = [...cardData, ...cardData];
-    randomizeCards();
-    createCards();
+    initializeGame();
   });
 
-export function randomizeCards() {
-  let remainingCards = gameCards.length,
-      randomIndex,
-      tempValue;
+function initializeGame() {
+  randomizeCards();
+  createCards();
+}
 
-  while (remainingCards > 0) {
-    randomIndex = Math.floor(Math.random() * remainingCards);
-    remainingCards--;
-
-    tempValue = gameCards[remainingCards];
-    gameCards[remainingCards] = gameCards[randomIndex];
-    gameCards[randomIndex] = tempValue;
+function randomizeCards() {
+  for (let i = gameCards.length - 1; i > 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+    [gameCards[i], gameCards[randomIndex]] = [gameCards[randomIndex], gameCards[i]];
   }
 }
 
-export function createCards() {
+function createCards() {
   gameCards.forEach((card) => {
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("card");
     cardDiv.setAttribute("data-card", card.name);
     cardDiv.innerHTML = `
       <div class="front">
-        <img class="front-image" src="${card.image}" />
+        <img class="front-image" src=${card.image} />
       </div>
       <div class="back"></div>
     `;
@@ -51,8 +43,7 @@ export function createCards() {
 }
 
 function handleCardClick() {
-  if (isBoardLocked) return;
-  if (this === firstSelection) return;
+  if (isBoardLocked || this === firstSelection) return;
 
   this.classList.add("flipped");
 
@@ -67,22 +58,19 @@ function handleCardClick() {
   checkForCardMatch();
 }
 
-export function checkForCardMatch() {
-  const isMatch = firstSelection.dataset.card === secondSelection.dataset.card;
-  isMatch ? handleMatch() : handleNoMatch();
-  updateScores();
-}
+function checkForCardMatch() {
+  if (firstSelection.dataset.card === secondSelection.dataset.card) {
+    positiveScore += 10;
+    matchedPairs++;
+    disableSelectedCards();
+  } else {
+    negativeScore -= 2;
+    resetFlippedCards();
+  }
 
-function handleMatch() {
-  positiveScore += 10;
-  matchedPairs++;
-  disableSelectedCards();
+  currentScore = positiveScore + negativeScore;
   checkForGameEnd();
-}
-
-function handleNoMatch() {
-  negativeScore -= 2;
-  resetFlippedCards();
+  updateScores();
 }
 
 function disableSelectedCards() {
@@ -92,7 +80,7 @@ function disableSelectedCards() {
   resetGameBoard();
 }
 
-export function resetFlippedCards() {
+function resetFlippedCards() {
   setTimeout(() => {
     firstSelection.classList.remove("flipped");
     secondSelection.classList.remove("flipped");
@@ -104,7 +92,17 @@ function resetGameBoard() {
   [firstSelection, secondSelection, isBoardLocked] = [null, null, false];
 }
 
-export function restart() {
+function checkForGameEnd() {
+  if (matchedPairs === gameCards.length / 2) {
+    const finalScore = currentScore;
+    setTimeout(() => {
+      alert(`Congratulations! You've matched all the cards!\nYour final score is:` + finalScore);
+      restart();
+    }, 500);
+  }
+}
+
+function restart() {
   resetGameBoard();
   matchedPairs = 0;
   positiveScore = 0;
@@ -112,9 +110,8 @@ export function restart() {
   currentScore = 0;
   updateScores();
   const cards = document.querySelectorAll(".card");
-  cards.forEach(card => card.remove());
-  randomizeCards();
-  createCards();
+  cards.forEach((card) => card.remove());
+  initializeGame()
 }
 
 function updateScores() {
@@ -122,6 +119,3 @@ function updateScores() {
   document.querySelector(".positive-score").textContent = positiveScore;
   document.querySelector(".negative-score").textContent = negativeScore;
 }
-
-// Make restart function accessible globally
-window.restart = restart;
