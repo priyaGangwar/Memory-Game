@@ -4,4 +4,9 @@ module.exports = {
     coverageDirectory: 'coverage',
     coverageReporters: ['text', 'lcov'],
   };
+  module.exports = {
+    transform: {
+      '^.+\\.js$': 'babel-jest',
+    },
+  };
   
