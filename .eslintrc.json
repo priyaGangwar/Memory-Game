@@ -8,15 +8,14 @@
     "ecmaVersion": 2015,
     "sourceType": "module"
   },
+  "plugins": ["complexity", "no-duplicate-imports"],
   "rules": {
     "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
-    "semi": ["error", "always"]
-  }
-  "plugins": ["complexity", "no-duplicate-imports"],
-  "rules": {
+    "semi": ["error", "always"],
     "complexity": ["error", { "max": 10 }],
     "no-duplicate-imports": "error"
-  } 
+  }
 }
+
