@@ -1,21 +1,29 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory Card Game</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
     <h1>Memory Cards</h1>
-    <div class="scoreboard">
-      <p>Total Score: <span class="score">0</span>&nbsp;&nbsp;
-      Positive Score: <span class="positive-score">0</span>&nbsp;&nbsp;
-      Negative Score: <span class="negative-score">0</span></p>
+    <div id="player-form">
+      <input type="text" id="player-name" placeholder="Enter your name" aria-label="Player name">
+      <button onclick="startGame()">Start Game</button>
     </div>
-    <div class="grid-container"></div>
-    <div class="actions">
-      <p><button onclick="restart()">Restart</button></p>
-    </div>
-    <script src="index.js"></script>
+    <main>
+      <div class="scoreboard" aria-live="polite">
+        <p>Total Score: <span class="score">0</span></p>
+        <p>Positive Score: <span class="positive-score">0</span></p>
+        <p>Negative Score: <span class="negative-score">0</span></p>
+      </div>
+      <div class="grid-container" aria-label="Memory card grid">
+      </div>
+      <div class="actions">
+        <button onclick="restart()">Restart</button>
+      </div>
+    </main>
+    <script type="module" src="index.js"></script>
   </body>
 </html>
