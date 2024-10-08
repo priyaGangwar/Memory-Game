@@ -121,12 +121,3 @@ npm test
 ## API Endpoints
 - POST /api/scores: Save a new score
 - GET /api/leaderboard: Retrieve top 10 scores
-
-## Future Improvements
-- Implement user authentication
-- Add difficulty levels
-- Create a mobile-responsive design
-
-## Acknowledgments
-- [Any libraries or resources you used]
-- Course instructor and TAs for their guidance
