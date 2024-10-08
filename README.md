@@ -1,4 +1,3 @@
-
 Memory Card Game
 
 Overview:
@@ -65,3 +64,69 @@ Changed few code snippets so that it is easy to understand the game logic and re
 <img width="1440" alt="Screenshot 2024-09-12 at 4 28 48 PM" src="https://github.com/user-attachments/assets/b068ff75-69b6-4f24-b814-70270243c252">
 <img width="1440" alt="Screenshot 2024-09-12 at 8 45 14 AM" src="https://github.com/user-attachments/assets/466aa158-deab-405e-8aca-d6590e3b87a9">
 <img width="773" alt="Screenshot 2024-09-12 at 8 38 31 AM" src="https://github.com/user-attachments/assets/3d33856f-4e96-41eb-9087-1f5739dc8d52">
+
+# Memory Game - Client-Server Edition
+
+## Project Overview
+This project is an extension of our original Memory Game, transforming it from a static web application into a multi-tiered client-server architecture. The game now includes features such as player authentication, score tracking, and a leaderboard system.
+
+## GitHub Repository
+[https://github.com/priyagangwar/Memory-Game](https://github.com/priyagangwar/Memory-Game)
+
+## Deployed Version
+[Link to deployed game - ]
+
+## Architecture and Test Pyramid Diagram
+![Architecture and Test Pyramid](./documentation/architecture_test_pyramid.png)
+
+## Features
+- Player name input before game start
+- Score tracking and storage
+- Top 10 leaderboard
+- Client-server communication via RESTful API
+- Database integration for persistent storage
+
+## Tech Stack
+- Frontend: HTML, CSS, [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- Backend: [Node.js](https://nodejs.org/) with [Express.js](https://expressjs.com/)
+- Database: [MongoDB](https://www.mongodb.com/)
+- Testing: [Jest](https://jestjs.io/), [Supertest](https://www.npmjs.com/package/supertest)
+
+## Setup and Installation
+1. Clone the repository:git clone https://github.com/priyagangwar/Memory-Game.git 
+   cd Memory-Game
+
+2. Install dependencies:
+   cd server
+   npm install
+   cd ../client
+   npm install
+   
+3. Set up MongoDB:
+- Install MongoDB if not already installed
+- Start MongoDB service
+
+4. Start the server:
+   cd server
+   npm start
+   
+5. Open the client:
+- Open `index.html` in a web browser
+
+## Running Tests
+To run the test suite:
+cd server
+npm test
+
+## API Endpoints
+- POST /api/scores: Save a new score
+- GET /api/leaderboard: Retrieve top 10 scores
+
+## Future Improvements
+- Implement user authentication
+- Add difficulty levels
+- Create a mobile-responsive design
+
+## Acknowledgments
+- [Any libraries or resources you used]
+- Course instructor and TAs for their guidance
