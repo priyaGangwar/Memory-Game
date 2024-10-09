@@ -96,7 +96,7 @@ function checkForGameEnd() {
   if (matchedPairs === gameCards.length / 2) {
     const finalScore = currentScore;
     setTimeout(() => {
-      alert(`Congratulations! You've matched all the cards!\nYour final score is:` + finalScore);
+      alert(`Congratulations! You've matched all the cards!\nYour final score is: ` + finalScore);
       restart();
     }, 500);
   }
