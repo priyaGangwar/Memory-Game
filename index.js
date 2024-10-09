@@ -7,6 +7,8 @@ let positiveScore = 0;
 let negativeScore = 0;
 let matchedPairs = 0;
 
+let playerName = prompt("Enter your name to start Memory Card game:");
+
 fetch("./cards.json")
   .then((response) => response.json())
   .then((cardData) => {
