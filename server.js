@@ -3,7 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const app = express();
-const PORT = process.env.PORT || 5500;
+const PORT = process.env.PORT || 5000;
 const Score = require('./models/Score');
 
 const Score = require('./Score');
@@ -17,7 +17,7 @@ mongoose.connect('mongodb://https://priyagangwar.github.io/Memory-Game/', { useN
 // Define routes here
 
 app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:5500`);
+  console.log(`Server is running at http://localhost:5000`);
 });
 
 // Save a new score
