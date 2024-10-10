@@ -79,8 +79,12 @@ This project is an extension of our original Memory Game, transforming it from a
 ## Deployed Version
 [https://priyagangwar.github.io/Memory-Game/](https://priyagangwar.github.io/Memory-Game/)
 
-## Architecture and Test Pyramid Diagram
+## Architecture Pyramid Diagram
 <img width="199" alt="Screenshot 2024-10-10 at 10 37 21 PM" src="https://github.com/user-attachments/assets/50792405-ccf5-4e60-b489-25ad6f1df57b">
+
+## Test Pyramid Diagram
+<img width="408" alt="Screenshot 2024-10-10 at 10 44 48 PM" src="https://github.com/user-attachments/assets/df322a10-fbf4-46f8-805d-8c711b715d92">
+
 
 ## Features
 - Player name input before game start
