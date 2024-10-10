@@ -14,7 +14,7 @@ function endGame(score) {
   // Your existing end game logic here
 
   // Save score to server
-  fetch('http://localhost:5500/api/scores', {
+  fetch('http://localhost:5000/api/scores', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ function endGame(score) {
 }
 
 function fetchLeaderboard() {
-  fetch('http://localhost:5500/api/leaderboard')
+  fetch('http://localhost:5000/api/leaderboard')
     .then(response => response.json())
     .then(data => {
       displayLeaderboard(data);
