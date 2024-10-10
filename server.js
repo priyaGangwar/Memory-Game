@@ -17,7 +17,7 @@ mongoose.connect('mongodb://https://priyagangwar.github.io/Memory-Game/', { useN
 // Define routes here
 
 app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:5000`);
+  console.log(`Server is running at ${PORT}`);
 });
 
 // Save a new score
