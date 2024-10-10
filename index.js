@@ -78,7 +78,6 @@ function checkForCardMatch() {
 function disableSelectedCards() {
   firstSelection.removeEventListener("click", handleCardClick);
   secondSelection.removeEventListener("click", handleCardClick);
-
   resetGameBoard();
 }
 
