@@ -1,22 +1,23 @@
 body {
   min-height: 100vh;
   min-width: 100vh;
-  background: #950146b8;
+  background: #032f96b8;
   color: rgb(237 218 15);
 }
 
 h1 {
   text-align: center;
   font-weight: 700;
-  font-size: 50px;
+  font-size: 60px;
   font-family: Montserrat, sans-serif;
   color: #e6e6e6;
   text-shadow: 2px 2px 4px rgb(0 0 0 / 60%);
 }
 
 p {
+  margin-top: -20px;
   text-align: center;
-  font-size: 30px;
+  font-size: 35px;
   font-weight: bold;
 }
 
@@ -26,9 +27,10 @@ p {
 }
 
 .actions button {
-  padding: 10px 20px;
+  margin-top: 20px;
+  padding: 10px 30px;
   font-size: 30px;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: #27ae60;
   color: #fffafa;
 }
@@ -36,7 +38,7 @@ p {
 .grid-container {
   display: grid;
   justify-content: center;
-  grid-gap: 30px;
+  grid-gap: 20px;
   grid-template-columns: repeat(4, 140px);
   grid-template-rows: repeat(4, calc(140px / 2 * 3));
 }
@@ -45,7 +47,7 @@ p {
   height: calc(140px / 2 * 3);
   width: 140px;
   border-radius: 10px;
-  background:  #f4dfed;
+  background:  #dfe8f4;
   position: relative;
   transform-style: preserve-3d;
   transition: all 0.5s ease-in-out;
