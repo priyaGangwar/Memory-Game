@@ -77,7 +77,7 @@ This project is an extension of our original Memory Game, transforming it from a
 [https://github.com/priyagangwar/Memory-Game](https://github.com/priyagangwar/Memory-Game)
 
 ## Deployed Version
-[Link to deployed game - ]
+[https://priyagangwar.github.io/Memory-Game/](https://priyagangwar.github.io/Memory-Game/)
 
 ## Architecture and Test Pyramid Diagram
 <img width="199" alt="Screenshot 2024-10-10 at 10 37 21 PM" src="https://github.com/user-attachments/assets/50792405-ccf5-4e60-b489-25ad6f1df57b">
